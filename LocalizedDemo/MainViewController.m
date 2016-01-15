@@ -7,7 +7,14 @@
 //
 
 #import "MainViewController.h"
+
+#define ASLocalizedString(key)  [NSString stringWithFormat:@"%@", [[NSBundle bundleWithPath:[[NSBundle mainBundle] pathForResource:[NSString stringWithFormat:@"%@",[[NSUserDefaults standardUserDefaults] objectForKey:@"appLanguage"]] ofType:@"lproj"]] localizedStringForKey:(key) value:nil table:@"ASLocalized"]]
+
+
+static NSString *appLanguage = @"appLanguage";
+
 @interface MainViewController ()
+
 @property (weak, nonatomic) IBOutlet UILabel *lblShowTxt;
 
 @end
@@ -16,9 +23,35 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.lblShowTxt.text = NSLocalizedStringFromTable(@"showTxt", @"ASLocalized", nil);
-
+    [self showLbl];
 }
+
+- (IBAction)changeLanguage:(UIButton *)sender {
+    
+    switch (sender.tag) {
+        case 101: {
+            [[NSUserDefaults standardUserDefaults] setObject:@"zh-Hans" forKey:appLanguage];
+        }
+            break;
+        case 102: {
+            [[NSUserDefaults standardUserDefaults] setObject:@"zh-Hant" forKey:appLanguage];
+        }
+            break;
+        case 103: {
+            [[NSUserDefaults standardUserDefaults] setObject:@"en" forKey:appLanguage];
+        }
+            break;
+        default:
+            break;
+    }
+    [self showLbl];
+}
+
+- (void)showLbl {
+    self.lblShowTxt.text = ASLocalizedString(@"showTxt");
+}
+
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

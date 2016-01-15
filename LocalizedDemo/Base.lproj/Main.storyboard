@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Main View Controller-->
@@ -26,12 +27,60 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" tag="101" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VaQ-ky-ZKH">
+                                <rect key="frame" x="40" y="210" width="520" height="30"/>
+                                <color key="backgroundColor" red="0.26056555739999998" green="0.7435364297" blue="0.76862745099999996" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="vG9-ST-7mD"/>
+                                </constraints>
+                                <state key="normal" title="简体中文">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="changeLanguage:" destination="BYZ-38-t0r" eventType="touchUpInside" id="FeK-00-MQQ"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="102" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sqc-Yc-rRf">
+                                <rect key="frame" x="40" y="272" width="520" height="30"/>
+                                <color key="backgroundColor" red="0.12549019610000001" green="0.76862745099999996" blue="0.54117647059999996" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="BR6-wh-wUj"/>
+                                </constraints>
+                                <state key="normal" title="繁體中文">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="changeLanguage:" destination="BYZ-38-t0r" eventType="touchUpInside" id="TfA-76-1gr"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="103" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uma-Zb-tug">
+                                <rect key="frame" x="40" y="332" width="520" height="30"/>
+                                <color key="backgroundColor" red="1" green="0.76220305018378864" blue="0.28019850804787594" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="ccG-cs-CvY"/>
+                                </constraints>
+                                <state key="normal" title="English">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="changeLanguage:" destination="BYZ-38-t0r" eventType="touchUpInside" id="O0C-G5-l7X"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="Sqc-Yc-rRf" secondAttribute="trailing" constant="20" id="I8x-Hd-x3c"/>
+                            <constraint firstItem="Sqc-Yc-rRf" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="20" id="KIk-eo-i4S"/>
+                            <constraint firstItem="Uma-Zb-tug" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="20" id="Kqt-Tu-D4H"/>
+                            <constraint firstItem="Uma-Zb-tug" firstAttribute="top" secondItem="Sqc-Yc-rRf" secondAttribute="bottom" constant="30" id="MM7-FH-Qsb"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Uma-Zb-tug" secondAttribute="trailing" constant="20" id="QU9-fC-s57"/>
                             <constraint firstItem="dym-wC-iIg" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" id="edc-40-CoT"/>
                             <constraint firstItem="dym-wC-iIg" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="100" id="ew9-2V-u7j"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="VaQ-ky-ZKH" secondAttribute="trailing" constant="20" id="hfy-9J-qXc"/>
                             <constraint firstAttribute="trailing" secondItem="dym-wC-iIg" secondAttribute="trailing" constant="20" id="iDN-tv-Zkc"/>
+                            <constraint firstItem="Sqc-Yc-rRf" firstAttribute="top" secondItem="VaQ-ky-ZKH" secondAttribute="bottom" constant="32" id="r4q-jV-HRR"/>
+                            <constraint firstItem="VaQ-ky-ZKH" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="20" id="wiV-46-h6Q"/>
+                            <constraint firstItem="VaQ-ky-ZKH" firstAttribute="top" secondItem="dym-wC-iIg" secondAttribute="bottom" constant="50" id="yAy-so-Wgi"/>
                         </constraints>
                     </view>
                     <connections>

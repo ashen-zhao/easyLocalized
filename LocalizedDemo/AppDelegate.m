@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+static NSString *appLanguage = @"appLanguage";
 
 @interface AppDelegate ()
 
@@ -17,7 +18,24 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    [self setLangueage];
     return YES;
+}
+
+- (void)setLangueage {
+    if (![[NSUserDefaults standardUserDefaults] objectForKey:appLanguage]) {
+        NSArray  *languages = [NSLocale preferredLanguages];
+        NSString *language = [languages objectAtIndex:0];
+        if ([language hasPrefix:@"zh-Hans"]) {
+            [[NSUserDefaults standardUserDefaults] setObject:@"zh-Hans" forKey:appLanguage];
+        } else if ([language hasPrefix:@"zh-TW"] || [language hasPrefix:@"zh-HK"] || [language hasPrefix:@"zh-Hant"]) {
+            [[NSUserDefaults standardUserDefaults] setObject:@"zh-Hant" forKey:appLanguage];
+        } else if ([language hasPrefix:@"en"]) {
+            [[NSUserDefaults standardUserDefaults] setObject:@"en" forKey:appLanguage];
+        }else{
+            [[NSUserDefaults standardUserDefaults] setObject:@"zh-Hans" forKey:appLanguage];
+        }
+    }
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {
